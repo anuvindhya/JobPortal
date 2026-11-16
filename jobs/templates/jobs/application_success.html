@@ -1,0 +1,28 @@
+
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 text-center">
+
+    <div class="card shadow p-5">
+
+        <h2 class="text-success">
+            Application Submitted Successfully!
+        </h2>
+
+        <p class="mt-3">
+            Thank you for applying for this job.
+            Your application has been submitted.
+        </p>
+
+        <a href="{% url 'job-list' %}"
+           class="btn btn-primary mt-3">
+            Back to Jobs
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

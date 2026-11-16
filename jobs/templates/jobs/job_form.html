@@ -1,0 +1,85 @@
+
+{% extends 'jobs/base.html' %}
+
+{% block title %}Post Job{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h3 class="mb-4">
+
+                    {% if object %}
+                        Update Job
+                    {% else %}
+                        Post New Job
+                    {% endif %}
+
+                </h3>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {{ form.non_field_errors }}
+
+                    <div class="mb-3">
+                        <label class="form-label">Job Title</label>
+                        {{ form.title }}
+                        {{ form.title.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Company Name</label>
+                        {{ form.company_name }}
+                        {{ form.company_name.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Location</label>
+                        {{ form.location }}
+                        {{ form.location.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Salary</label>
+                        {{ form.salary }}
+                        {{ form.salary.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Job Description</label>
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        {% if object %}
+                            Update Job
+                        {% else %}
+                            Save Job
+                        {% endif %}
+                    </button>
+
+                    <a href="{% url 'job-list' %}"
+                       class="btn btn-secondary">
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

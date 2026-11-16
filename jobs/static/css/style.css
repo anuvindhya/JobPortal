@@ -1,0 +1,146 @@
+
+/* General styling */
+
+body {
+    background-color: #f4f7fb;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+
+.navbar-brand {
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+/* Hero section */
+
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd, #5a45c8);
+    color: white;
+    padding: 55px 20px;
+    border-radius: 12px;
+}
+
+.hero-section h1 {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 17px;
+}
+
+/* Job cards */
+
+.job-card {
+    border: none;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #222;
+}
+
+/* Forms */
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.form-control,
+.form-select {
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13,110,253,0.2);
+}
+
+/* Buttons */
+
+.btn {
+    border-radius: 7px;
+    padding: 8px 16px;
+}
+
+/* Tables */
+
+.table {
+    background: white;
+    vertical-align: middle;
+}
+
+/* Profile */
+
+.profile-icon {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: #0d6efd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: bold;
+    margin: auto;
+}
+
+/* Footer */
+
+.footer {
+    background: #212529;
+    color: white;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+
+    .hero-section h1 {
+        font-size: 28px;
+    }
+
+    .hero-section {
+        padding: 35px 15px;
+    }
+
+    .table {
+        font-size: 13px;
+    }
+
+}

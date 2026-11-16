@@ -1,0 +1,125 @@
+
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <!-- Welcome Section -->
+    <div class="p-5 mb-4 bg-primary text-white rounded">
+        <h1>Welcome to JobPortal</h1>
+        <p class="lead">
+            A platform connecting talented job seekers with employers.
+        </p>
+        <p>
+            Find opportunities, post vacancies, and manage job applications
+            in one place.
+        </p>
+    </div>
+
+    <!-- Project Overview -->
+    <h2 class="mb-3">Project Overview</h2>
+    <p>
+        JobPortal is a web-based job management system developed using
+        Python, Django, HTML, CSS, Bootstrap, and SQLite.
+        It allows employers to publish job vacancies and job seekers
+        to search and apply for suitable jobs.
+    </p>
+
+    <!-- Roles and Responsibilities -->
+    <h2 class="mt-4 mb-3">Roles and Responsibilities</h2>
+
+    <div class="row">
+
+        <!-- Employer -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h4 class="card-title text-primary">Employer</h4>
+                    <p>Responsibilities:</p>
+                    <ul>
+                        <li>Register and log in as an employer.</li>
+                        <li>Create and publish job vacancies.</li>
+                        <li>Update job descriptions and details.</li>
+                        <li>Delete job postings.</li>
+                        <li>View and manage posted jobs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Seeker -->
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 shadow">
+                <div class="card-body">
+                    <h4 class="card-title text-success">Job Seeker</h4>
+                    <p>Responsibilities:</p>
+                    <ul>
+                        <li>Register and log in as a job seeker.</li>
+                        <li>Browse available job vacancies.</li>
+                        <li>View job descriptions and salary details.</li>
+                        <li>Apply for suitable job opportunities.</li>
+                        <li>View submitted applications.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Technologies -->
+    <h2 class="mt-4 mb-3">Technologies Used</h2>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <ul>
+                <li><strong>Frontend:</strong> HTML, CSS, Bootstrap</li>
+                <li><strong>Backend:</strong> Python, Django</li>
+                <li><strong>Database:</strong> SQLite</li>
+                <li><strong>Authentication:</strong> Django Authentication</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <h2 class="mb-3">Quick Actions</h2>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'job-list' %}"
+               class="btn btn-outline-primary w-100">
+                Browse Jobs
+            </a>
+        </div>
+
+        {% if user.is_authenticated and user.role == 'employer' %}
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'job-create' %}"
+               class="btn btn-outline-success w-100">
+                Post a Job
+            </a>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'my-jobs' %}"
+               class="btn btn-outline-dark w-100">
+                My Jobs
+            </a>
+        </div>
+        {% endif %}
+
+        {% if user.is_authenticated and user.role == 'job_seeker' %}
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'my-applications' %}"
+               class="btn btn-outline-success w-100">
+                My Applications
+            </a>
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

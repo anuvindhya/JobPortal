@@ -1,0 +1,81 @@
+
+{% extends 'jobs/base.html' %}
+
+{% block title %}My Jobs{% endblock %}
+
+{% block content %}
+
+<h3 class="mb-4">My Posted Jobs</h3>
+
+<a href="{% url 'job-create' %}" class="btn btn-primary mb-3">
+    Post New Job
+</a>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for job in all_jobs %}
+
+                <tr>
+
+                    <td>{{ job.title }}</td>
+
+                    <td>{{ job.company_name }}</td>
+
+                    <td>{{ job.location }}</td>
+
+                    <td>₹{{ job.salary }}</td>
+
+                    <td>
+
+                        <a href="{% url 'job-detail' job.pk %}"
+                           class="btn btn-info btn-sm">
+                            View
+                        </a>
+
+                        <a href="{% url 'job-update' job.pk %}"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a href="{% url 'job-delete' job.pk %}"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% empty %}
+
+                <tr>
+                    <td colspan="5" class="text-center">
+                        You haven't posted any jobs yet.
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

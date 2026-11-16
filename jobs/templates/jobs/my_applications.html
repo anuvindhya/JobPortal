@@ -1,0 +1,67 @@
+
+{% extends 'jobs/base.html' %}
+
+{% block title %}My Applications{% endblock %}
+
+{% block content %}
+
+<h3 class="mb-4">My Applications</h3>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Location</th>
+                <th>Date Applied</th>
+                <th>Details</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for application in applications %}
+
+                <tr>
+
+                    <td>{{ application.job.title }}</td>
+
+                    <td>{{ application.job.company_name }}</td>
+
+                    <td>{{ application.job.location }}</td>
+
+                    <td>{{ application.date_applied|date:"d-m-Y" }}</td>
+
+                    <td>
+
+                        <a href="{% url 'job-detail' application.job.pk %}"
+                           class="btn btn-primary btn-sm">
+                            View Job
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            {% empty %}
+
+                <tr>
+                    <td colspan="5" class="text-center">
+                        You haven't applied for any jobs yet.
+                    </td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}
